@@ -1,0 +1,50 @@
+TODO: SystemMonitorX Projekt
+
+1. Projektstruktur erstellen
+   - /core/
+   - /widgets/
+   - /assets/icons/
+   - /config/
+   - main.py
+
+2. Systemdaten-Funktionen umsetzen
+   - CPU-Auslastung (psutil.cpu_percent)
+   - RAM-Verbrauch (psutil.virtual_memory)
+   - Festplattenspeicher (psutil.disk_usage)
+   - Systeminfos (platform, os)
+
+3. GUI Dashboard erstellen (CustomTkinter)
+   - Hauptfenster mit Rahmen und Layout
+   - Live-Werte mit Labels & Icons
+   - Aktualisierung alle 1 Sekunde
+
+4. Widgets umsetzen
+   - Eigenes Tkinter-Fenster mit overrideredirect(True)
+   - Transparent & Drag-and-Drop-fähig
+   - Anzeige eines einzelnen Systemwerts (z. B. CPU%)
+
+5. Widget-Manager entwickeln
+   - Start/Stopp von Widgets aus Haupt-GUI
+   - Konfiguration der Widgets (Größe, Position, Wert)
+
+6. Tray-Integration (pystray)
+   - Hauptfenster minimieren / schließen → Widgets bleiben aktiv
+   - Option zum Beenden im Tray-Menü
+
+7. Design verfeinern
+   - Dark/Light Mode
+   - Y2K-inspiriertes Farbschema
+   - Fonts, Icons hinzufügen
+
+8. Logging / Verlauf (Bonus)
+   - Verlaufsdaten speichern (CSV oder JSON)
+   - Graphen (optional mit matplotlib)
+
+9. Konfiguration per JSON
+   - Widget-Positionen & aktiver Status speichern
+
+10. Export als .exe
+    - Mit pyinstaller als portable Anwendung bauen
+    - Optional: Autostart hinzufügen
+
+Viel Erfolg! 🚀

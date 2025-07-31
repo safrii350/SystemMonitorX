@@ -1,0 +1,42 @@
+{
+  "app": {
+    "name": "SystemMonitorX",
+    "version": "1.0.0",
+    "theme": "dark",
+    "update_interval": 1.0,
+    "window_size": "800x600",
+    "window_position": "center",
+    "transparency": 0.9,
+    "always_on_top": false,
+    "minimize_to_tray": true
+  },
+  "dashboard": {
+    "show_system_info": true,
+    "show_widget_controls": true,
+    "show_logging_controls": true,
+    "show_graph_controls": true,
+    "auto_start_logging": false,
+    "log_format": "both"
+  },
+  "monitoring": {
+    "cpu_enabled": true,
+    "memory_enabled": true,
+    "disk_enabled": true,
+    "network_enabled": false,
+    "gpu_enabled": false,
+    "update_frequency": 1.0
+  },
+  "logging": {
+    "enabled": false,
+    "auto_start": false,
+    "buffer_size": 1000,
+    "save_interval": 60,
+    "max_log_files": 10
+  },
+  "tray": {
+    "enabled": true,
+    "show_icon": true,
+    "update_icon": true,
+    "minimize_to_tray": true
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "widgets": {
+    "cpu": {
+      "enabled": true,
+      "position": "custom_3539_138",
+      "size": "200x100",
+      "transparency": 0.9,
+      "always_on_top": true,
+      "auto_start": false,
+      "custom_position": {
+        "x": 3539,
+        "y": 138
+      }
+    },
+    "memory": {
+      "enabled": true,
+      "position": "custom_3545_264",
+      "size": "200x100",
+      "transparency": 0.9,
+      "always_on_top": true,
+      "auto_start": false,
+      "custom_position": {
+        "x": 3545,
+        "y": 264
+      }
+    },
+    "disk": {
+      "enabled": false,
+      "position": "top_right",
+      "size": "200x100",
+      "transparency": 0.9,
+      "always_on_top": true,
+      "auto_start": false
+    }
+  },
+  "positions": {
+    "top_left": {
+      "x": 20,
+      "y": 20
+    },
+    "top_right": {
+      "x": -220,
+      "y": 20
+    },
+    "bottom_left": {
+      "x": 20,
+      "y": -120
+    },
+    "bottom_right": {
+      "x": -220,
+      "y": -120
+    },
+    "center": {
+      "x": "center",
+      "y": "center"
+    }
+  },
+  "sizes": {
+    "small": "150x80",
+    "medium": "200x100",
+    "large": "250x120"
+  }
+}

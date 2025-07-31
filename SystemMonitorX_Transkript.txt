@@ -1,0 +1,19 @@
+Projektname: SystemMonitorX
+Beschreibung:
+Ein modernes, visuelles System-Monitoring-Tool im Stil von Rainmeter oder BeWidgets – jedoch komplett in Python entwickelt. Die App zeigt Live-Systemdaten an und erlaubt das Erstellen von Desktop-Widgets, die unabhängig vom Hauptfenster weiterlaufen. Ziel ist es, ein leichtgewichtiges, erweiterbares Tool zu erstellen, das CPU-, RAM- und Speicherinformationen anzeigt und durch ein aufgeräumtes Dashboard überzeugt.
+
+Technologien:
+- Python 3.12+
+- CustomTkinter für moderne GUI
+- psutil für Systemüberwachung
+- tkinter + overrideredirect für Desktop-Widgets
+- threading für Hintergrundaktualisierungen
+- pyinstaller für portable .exe Erstellung
+
+Hauptfunktionen:
+- Dashboard mit Live-Daten zu CPU, RAM, Festplatte, Systeminfos
+- Desktop-Widgets mit transparentem Design
+- Eigenständige Widgets laufen weiter, auch wenn GUI geschlossen
+- Ressourcenverbrauch minimal
+- Themes & Konfiguration über JSON möglich
+- Erweiterbar durch neue Monitore (z. B. Netzwerk, GPU, etc.)
