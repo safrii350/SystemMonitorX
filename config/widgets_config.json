@@ -2,46 +2,50 @@
   "widgets": {
     "cpu": {
       "enabled": true,
-      "position": "custom_1669_46",
-      "size": "200x100",
+      "position": "custom_1245_205",
+      "size": "320x110",
       "transparency": 0.9,
       "always_on_top": true,
       "auto_start": false,
       "custom_position": {
-        "x": 1669,
-        "y": 46
+        "x": 1245,
+        "y": 205
       }
     },
     "memory": {
       "enabled": true,
-      "position": "custom_1667_162",
-      "size": "200x100",
+      "position": "custom_1236_484",
+      "size": "320x110",
       "transparency": 0.9,
       "always_on_top": true,
       "auto_start": false,
       "custom_position": {
-        "x": 1667,
-        "y": 162
+        "x": 1236,
+        "y": 484
       }
     },
     "disk": {
       "enabled": true,
-      "position": "custom_1667_288",
-      "size": "200x100",
+      "position": "custom_1242_634",
+      "size": "320x110",
       "transparency": 0.9,
       "always_on_top": true,
       "auto_start": false,
       "custom_position": {
-        "x": 1667,
-        "y": 288
+        "x": 1242,
+        "y": 634
       }
     },
     "system": {
       "enabled": true,
-      "position": "custom_1669_408",
+      "position": "custom_1245_346",
+      "size": "320x110",
+      "transparency": 0.9,
+      "always_on_top": true,
+      "auto_start": false,
       "custom_position": {
-        "x": 1669,
-        "y": 408
+        "x": 1245,
+        "y": 346
       }
     }
   },
@@ -68,8 +72,8 @@
     }
   },
   "sizes": {
-    "small": "150x80",
-    "medium": "200x100",
-    "large": "250x120"
+    "small": "280x90",
+    "medium": "320x110",
+    "large": "360x130"
   }
 }

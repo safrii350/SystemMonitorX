@@ -52,7 +52,8 @@ class SystemMonitor:
                 'platform': platform.system(),
                 'platform_version': platform.version(),
                 'machine': platform.machine(),
-                'processor': platform.processor()
+                'processor': platform.processor(),
+                'username': psutil.users()[0].name if psutil.users() else 'Unknown'
             }
             
             return {

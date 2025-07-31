@@ -364,6 +364,10 @@ class Dashboard:
         if self.data_logger:
             self.data_logger.log_data(data)
         
+        # Widgets mit neuen Daten aktualisieren
+        if self.widget_manager:
+            self.widget_manager.update_widget_data(data)
+        
         # UI-Updates im Hauptthread ausführen
         self.root.after(0, self._update_labels)
         
@@ -418,9 +422,10 @@ class Dashboard:
         # System-Informationen
         if 'system' in self.data:
             sys_info = self.data['system']
+            username = sys_info.get('username', 'Unknown')
             sys_text = f"{sys_info['platform']} {sys_info['platform_version']}"
             self.system_card.update_value(sys_text)
-            self.system_card.update_info(f"Architektur: {sys_info['machine']}")
+            self.system_card.update_info(f"Online: {username}")
             
     def _create_widget(self, widget_type: str):
         """Erstellt ein Desktop-Widget"""
