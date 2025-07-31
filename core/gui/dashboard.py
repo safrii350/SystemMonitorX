@@ -8,6 +8,7 @@ import threading
 import time
 from .custom_widgets import ModernFrame, GradientButton, ModernLabel, SystemInfoCard, AnimatedProgressBar, GlassmorphismFrame
 from ..graph_viewer import GraphViewer
+from ..icon_manager import IconManager
 
 class Dashboard:
     """Hauptdashboard der SystemMonitorX Anwendung"""
@@ -22,6 +23,7 @@ class Dashboard:
         self.data_logger = data_logger
         self.config_manager = config_manager
         self.graph_viewer = GraphViewer(theme_manager)
+        self.icon_manager = IconManager(theme_manager)
         self.data = {}
         
         # GUI-Elemente
@@ -74,19 +76,19 @@ class Dashboard:
         data_container.grid_rowconfigure(1, weight=1)
         
         # CPU-Karte mit erweiterten Informationen
-        self.cpu_card = SystemInfoCard(data_container, self.theme_manager, "CPU")
+        self.cpu_card = SystemInfoCard(data_container, self.theme_manager, "CPU", self.icon_manager)
         self.cpu_card.grid(row=0, column=0, padx=(0, 10), pady=(0, 10), sticky="nsew")
         
         # RAM-Karte
-        self.memory_card = SystemInfoCard(data_container, self.theme_manager, "Arbeitsspeicher")
+        self.memory_card = SystemInfoCard(data_container, self.theme_manager, "Arbeitsspeicher", self.icon_manager)
         self.memory_card.grid(row=0, column=1, padx=(10, 0), pady=(0, 10), sticky="nsew")
         
         # Festplatten-Karte
-        self.disk_card = SystemInfoCard(data_container, self.theme_manager, "Festplatte")
+        self.disk_card = SystemInfoCard(data_container, self.theme_manager, "Festplatte", self.icon_manager)
         self.disk_card.grid(row=1, column=0, padx=(0, 10), pady=(10, 0), sticky="nsew")
         
         # System-Info-Karte
-        self.system_card = SystemInfoCard(data_container, self.theme_manager, "System")
+        self.system_card = SystemInfoCard(data_container, self.theme_manager, "System", self.icon_manager)
         self.system_card.grid(row=1, column=1, padx=(10, 0), pady=(10, 0), sticky="nsew")
         
         # Control-Bereiche mit modernem Design
@@ -119,7 +121,9 @@ class Dashboard:
         theme_button = GradientButton(
             button_row1,
             self.theme_manager,
-            text="🎨 Theme wechseln",
+            self.icon_manager,
+            "theme_dark" if self.theme_manager.current_theme == "dark" else "theme_light",
+            text="Theme wechseln",
             command=self._toggle_theme
         )
         theme_button.pack(side="left", padx=5)
@@ -128,7 +132,9 @@ class Dashboard:
         cpu_button = GradientButton(
             button_row1,
             self.theme_manager,
-            text="🖥️ CPU Widget",
+            self.icon_manager,
+            "widget_cpu",
+            text="CPU Widget",
             command=lambda: self._create_widget("cpu")
         )
         cpu_button.pack(side="left", padx=5)
@@ -137,7 +143,9 @@ class Dashboard:
         ram_button = GradientButton(
             button_row1,
             self.theme_manager,
-            text="💾 RAM Widget",
+            self.icon_manager,
+            "widget_ram",
+            text="RAM Widget",
             command=lambda: self._create_widget("memory")
         )
         ram_button.pack(side="left", padx=5)
@@ -399,6 +407,10 @@ class Dashboard:
                 current_theme = self.theme_manager.current_theme
                 new_theme = "light" if current_theme == "dark" else "dark"
                 self.theme_manager.set_theme(new_theme)
+                
+                # Icon-Manager aktualisieren
+                if self.icon_manager:
+                    self.icon_manager.update_theme()
                 
                 # Fenster-Transparenz aktualisieren
                 transparency = self.theme_manager.get_transparency()

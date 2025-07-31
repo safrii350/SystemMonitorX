@@ -14,14 +14,14 @@
     },
     "memory": {
       "enabled": true,
-      "position": "custom_3545_264",
+      "position": "custom_3540_254",
       "size": "200x100",
       "transparency": 0.9,
       "always_on_top": true,
       "auto_start": false,
       "custom_position": {
-        "x": 3545,
-        "y": 264
+        "x": 3540,
+        "y": 254
       }
     },
     "disk": {
