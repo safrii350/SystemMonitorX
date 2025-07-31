@@ -193,12 +193,12 @@ class DesktopWidget:
         self.info_label.configure(text="Kerne: 12")
 
     def _setup_memory_info(self):
-        self.title_label.configure(text="RAM: 16GB DDR4")
+        self.title_label.configure(text="RAM: DDR5")
         self.value_label.configure(text="59.1%")
         self.info_label.configure(text="Gesamt: 31.7 GB")
 
     def _setup_disk_info(self):
-        self.title_label.configure(text="DISK: 1TB SSD")
+        self.title_label.configure(text="DISK: SSD")
         self.value_label.configure(text="45.2%")
         self.info_label.configure(text="Gesamt: 475.7 GB")
 
@@ -211,7 +211,13 @@ class DesktopWidget:
         try:
             theme_suffix = self.theme_manager.current_theme if self.theme_manager else "dark"
             icons_path = Path("assets/icons")
-            icon_name = f"widget_{self.widget_type}"
+            
+            # Spezielle Behandlung für memory -> ram Icon
+            if self.widget_type == "memory":
+                icon_name = "widget_ram"
+            else:
+                icon_name = f"widget_{self.widget_type}"
+            
             icon_path = icons_path / f"{icon_name}_{theme_suffix}.png"
             if not icon_path.exists():
                 icon_path = icons_path / f"{icon_name}.png"

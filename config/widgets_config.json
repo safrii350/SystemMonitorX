@@ -14,38 +14,38 @@
     },
     "memory": {
       "enabled": true,
-      "position": "custom_1236_484",
-      "size": "320x110",
-      "transparency": 0.9,
-      "always_on_top": true,
-      "auto_start": false,
-      "custom_position": {
-        "x": 1236,
-        "y": 484
-      }
-    },
-    "disk": {
-      "enabled": true,
-      "position": "custom_1242_634",
-      "size": "320x110",
-      "transparency": 0.9,
-      "always_on_top": true,
-      "auto_start": false,
-      "custom_position": {
-        "x": 1242,
-        "y": 634
-      }
-    },
-    "system": {
-      "enabled": true,
-      "position": "custom_1245_346",
+      "position": "custom_1245_453",
       "size": "320x110",
       "transparency": 0.9,
       "always_on_top": true,
       "auto_start": false,
       "custom_position": {
         "x": 1245,
-        "y": 346
+        "y": 453
+      }
+    },
+    "disk": {
+      "enabled": true,
+      "position": "custom_1246_578",
+      "size": "320x110",
+      "transparency": 0.9,
+      "always_on_top": true,
+      "auto_start": false,
+      "custom_position": {
+        "x": 1246,
+        "y": 578
+      }
+    },
+    "system": {
+      "enabled": true,
+      "position": "custom_1244_328",
+      "size": "320x110",
+      "transparency": 0.9,
+      "always_on_top": true,
+      "auto_start": false,
+      "custom_position": {
+        "x": 1244,
+        "y": 328
       }
     }
   },

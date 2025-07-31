@@ -37,37 +37,41 @@ class Dashboard:
         
     def _setup_ui(self):
         """Erstellt die moderne, responsive Benutzeroberfläche"""
+        # Scrollbar-Container für responsive Darstellung
+        scroll_container = ctk.CTkScrollableFrame(self.root, fg_color="transparent")
+        scroll_container.pack(fill="both", expand=True, padx=10, pady=10)
+        
         # Hauptcontainer mit Gradient-Hintergrund
-        main_container = ctk.CTkFrame(self.root, fg_color="transparent")
-        main_container.pack(fill="both", expand=True, padx=20, pady=20)
+        main_container = ctk.CTkFrame(scroll_container, fg_color="transparent")
+        main_container.pack(fill="both", expand=True, padx=10, pady=10)
         
         # Header-Bereich
         header_frame = GlassmorphismFrame(main_container, self.theme_manager)
-        header_frame.pack(fill="x", pady=(0, 20))
+        header_frame.pack(fill="x", pady=(0, 15))
         
-        # Titel mit modernem Design
+        # Titel mit modernem Design (kleiner)
         title_label = ModernLabel(
             header_frame, 
             self.theme_manager,
             text="SYSTEMMONITORX", 
-            font_size=32,
+            font_size=24,
             font_weight="bold"
         )
-        title_label.pack(pady=20)
+        title_label.pack(pady=15)
         
-        # Untertitel
+        # Untertitel (kleiner)
         subtitle_label = ModernLabel(
             header_frame,
             self.theme_manager,
             text="Modernes System-Monitoring mit Desktop-Widgets",
-            font_size=14,
+            font_size=12,
             font_weight="normal"
         )
-        subtitle_label.pack(pady=(0, 20))
+        subtitle_label.pack(pady=(0, 15))
         
-        # Systemdaten-Grid mit modernem Layout
+        # Systemdaten-Grid mit modernem Layout (kompakter)
         data_container = ctk.CTkFrame(main_container, fg_color="transparent")
-        data_container.pack(fill="both", expand=True, pady=(0, 20))
+        data_container.pack(fill="both", expand=True, pady=(0, 15))
         
         # Responsive Grid-Layout
         data_container.grid_columnconfigure(0, weight=1)
@@ -77,41 +81,41 @@ class Dashboard:
         
         # CPU-Karte mit erweiterten Informationen
         self.cpu_card = SystemInfoCard(data_container, self.theme_manager, "CPU", self.icon_manager)
-        self.cpu_card.grid(row=0, column=0, padx=(0, 10), pady=(0, 10), sticky="nsew")
+        self.cpu_card.grid(row=0, column=0, padx=(0, 8), pady=(0, 8), sticky="nsew")
         
         # RAM-Karte
         self.memory_card = SystemInfoCard(data_container, self.theme_manager, "Arbeitsspeicher", self.icon_manager)
-        self.memory_card.grid(row=0, column=1, padx=(10, 0), pady=(0, 10), sticky="nsew")
+        self.memory_card.grid(row=0, column=1, padx=(8, 0), pady=(0, 8), sticky="nsew")
         
         # Festplatten-Karte
         self.disk_card = SystemInfoCard(data_container, self.theme_manager, "Festplatte", self.icon_manager)
-        self.disk_card.grid(row=1, column=0, padx=(0, 10), pady=(10, 0), sticky="nsew")
+        self.disk_card.grid(row=1, column=0, padx=(0, 8), pady=(8, 0), sticky="nsew")
         
         # System-Info-Karte
         self.system_card = SystemInfoCard(data_container, self.theme_manager, "System", self.icon_manager)
-        self.system_card.grid(row=1, column=1, padx=(10, 0), pady=(10, 0), sticky="nsew")
+        self.system_card.grid(row=1, column=1, padx=(8, 0), pady=(8, 0), sticky="nsew")
         
-        # Control-Bereiche mit modernem Design
+        # Control-Bereiche mit modernem Design (kompakter)
         controls_container = ctk.CTkFrame(main_container, fg_color="transparent")
-        controls_container.pack(fill="x", pady=(0, 20))
+        controls_container.pack(fill="x", pady=(0, 15))
         
-        # Widget-Controls
+        # Widget-Controls (kompakter)
         widget_section = GlassmorphismFrame(controls_container, self.theme_manager)
-        widget_section.pack(fill="x", pady=(0, 15))
+        widget_section.pack(fill="x", pady=(0, 10))
         
-        # Widget-Titel
+        # Widget-Titel (kleiner)
         widget_title = ModernLabel(
             widget_section, 
             self.theme_manager,
             text="DESKTOP-WIDGETS", 
-            font_size=16,
+            font_size=14,
             font_weight="bold"
         )
-        widget_title.pack(pady=(15, 10))
+        widget_title.pack(pady=(10, 8))
         
-        # Widget-Buttons mit modernem Design
+        # Widget-Buttons mit modernem Design (kompakter)
         widget_buttons_frame = ctk.CTkFrame(widget_section, fg_color="transparent")
-        widget_buttons_frame.pack(pady=(0, 15))
+        widget_buttons_frame.pack(pady=(0, 10))
         
         # Erste Button-Reihe
         button_row1 = ctk.CTkFrame(widget_buttons_frame, fg_color="transparent")
@@ -198,21 +202,21 @@ class Dashboard:
         )
         minimize_button.pack(side="left", padx=5)
         
-        # Logging-Sektion
+        # Logging-Sektion (kompakter)
         logging_section = GlassmorphismFrame(controls_container, self.theme_manager)
-        logging_section.pack(fill="x", pady=(0, 15))
+        logging_section.pack(fill="x", pady=(0, 10))
         
         logging_title = ModernLabel(
             logging_section,
             self.theme_manager,
             text="📊 DATEN-LOGGING", 
-            font_size=16,
+            font_size=14,
             font_weight="bold"
         )
-        logging_title.pack(pady=(15, 10))
+        logging_title.pack(pady=(10, 8))
         
         logging_buttons_frame = ctk.CTkFrame(logging_section, fg_color="transparent")
-        logging_buttons_frame.pack(pady=(0, 15))
+        logging_buttons_frame.pack(pady=(0, 10))
         
         # Logging-Buttons
         start_logging_button = GradientButton(
@@ -235,21 +239,21 @@ class Dashboard:
         )
         stop_logging_button.pack(side="left", padx=5)
         
-        # Graph-Sektion
+        # Graph-Sektion (kompakter)
         graph_section = GlassmorphismFrame(controls_container, self.theme_manager)
-        graph_section.pack(fill="x", pady=(0, 15))
+        graph_section.pack(fill="x", pady=(0, 10))
         
         graph_title = ModernLabel(
             graph_section,
             self.theme_manager,
             text="📈 GRAPHEN", 
-            font_size=16,
+            font_size=14,
             font_weight="bold"
         )
-        graph_title.pack(pady=(15, 10))
+        graph_title.pack(pady=(10, 8))
         
         graph_buttons_frame = ctk.CTkFrame(graph_section, fg_color="transparent")
-        graph_buttons_frame.pack(pady=(0, 15))
+        graph_buttons_frame.pack(pady=(0, 10))
         
         # Graph-Buttons in Reihen
         graph_row1 = ctk.CTkFrame(graph_buttons_frame, fg_color="transparent")
@@ -298,7 +302,7 @@ class Dashboard:
         )
         disk_graph_button.pack(side="left", padx=5)
         
-        # Konfigurations-Sektion
+        # Konfigurations-Sektion (kompakter)
         config_section = GlassmorphismFrame(controls_container, self.theme_manager)
         config_section.pack(fill="x")
         
@@ -306,13 +310,13 @@ class Dashboard:
             config_section,
             self.theme_manager,
             text="⚙️ KONFIGURATION", 
-            font_size=16,
+            font_size=14,
             font_weight="bold"
         )
-        config_title.pack(pady=(15, 10))
+        config_title.pack(pady=(10, 8))
         
         config_buttons_frame = ctk.CTkFrame(config_section, fg_color="transparent")
-        config_buttons_frame.pack(pady=(0, 15))
+        config_buttons_frame.pack(pady=(0, 10))
         
         # Konfigurations-Buttons in Reihen
         config_row1 = ctk.CTkFrame(config_buttons_frame, fg_color="transparent")

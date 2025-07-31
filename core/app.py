@@ -29,7 +29,7 @@ class SystemMonitorX:
         """Startet die Anwendung"""
         # Konfiguration laden
         theme = self.config_manager.get_config("app.theme") or "dark"
-        window_size = self.config_manager.get_config("app.window_size") or "800x600"
+        window_size = self.config_manager.get_config("app.window_size") or "900x700"
         transparency = self.config_manager.get_config("app.transparency") or 0.9
         
         # Theme-Manager konfigurieren
