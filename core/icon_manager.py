@@ -41,7 +41,8 @@ class IconManager:
         
     def load_icon(self, icon_name: str, size: tuple = (24, 24)) -> ImageTk.PhotoImage:
         """Lädt ein Icon und cached es"""
-        cache_key = f"{icon_name}_{size[0]}x{size[1]}"
+        theme_suffix = self.get_theme_suffix()
+        cache_key = f"{icon_name}_{theme_suffix}_{size[0]}x{size[1]}"
         
         if cache_key in self._icon_cache:
             return self._icon_cache[cache_key]
@@ -70,6 +71,10 @@ class IconManager:
             return self.load_icon("widget_cpu", (32, 32))
         elif widget_type == "memory":
             return self.load_icon("widget_ram", (32, 32))
+        elif widget_type == "disk":
+            return self.load_icon("widget_disk", (32, 32))
+        elif widget_type == "system":
+            return self.load_icon("widget_system", (32, 32))
         return None
         
     def get_theme_icon(self) -> ImageTk.PhotoImage:

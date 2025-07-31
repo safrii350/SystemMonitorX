@@ -154,9 +154,35 @@ class Dashboard:
         button_row2 = ctk.CTkFrame(widget_buttons_frame, fg_color="transparent")
         button_row2.pack(pady=5)
         
+        # Disk Widget Button
+        disk_button = GradientButton(
+            button_row2,
+            self.theme_manager,
+            self.icon_manager,
+            "widget_disk",
+            text="Disk Widget",
+            command=lambda: self._create_widget("disk")
+        )
+        disk_button.pack(side="left", padx=5)
+        
+        # System Widget Button
+        system_button = GradientButton(
+            button_row2,
+            self.theme_manager,
+            self.icon_manager,
+            "widget_system",
+            text="System Widget",
+            command=lambda: self._create_widget("system")
+        )
+        system_button.pack(side="left", padx=5)
+        
+        # Dritte Button-Reihe
+        button_row3 = ctk.CTkFrame(widget_buttons_frame, fg_color="transparent")
+        button_row3.pack(pady=5)
+        
         # Stop Button
         stop_button = GradientButton(
-            button_row2,
+            button_row3,
             self.theme_manager,
             text="⏹️ Alle Widgets stoppen",
             command=self._stop_all_widgets
@@ -192,7 +218,9 @@ class Dashboard:
         start_logging_button = GradientButton(
             logging_buttons_frame,
             self.theme_manager,
-            text="▶️ Logging starten",
+            self.icon_manager,
+            "logging_start",
+            text="Logging starten",
             command=self._start_logging
         )
         start_logging_button.pack(side="left", padx=5)
@@ -200,7 +228,9 @@ class Dashboard:
         stop_logging_button = GradientButton(
             logging_buttons_frame,
             self.theme_manager,
-            text="⏸️ Logging stoppen",
+            self.icon_manager,
+            "logging_stop",
+            text="Logging stoppen",
             command=self._stop_logging
         )
         stop_logging_button.pack(side="left", padx=5)
@@ -228,7 +258,9 @@ class Dashboard:
         overview_graph_button = GradientButton(
             graph_row1,
             self.theme_manager,
-            text="📊 System-Übersicht",
+            self.icon_manager,
+            "graph_icon",
+            text="System-Übersicht",
             command=lambda: self._show_graph("overview")
         )
         overview_graph_button.pack(side="left", padx=5)
@@ -236,7 +268,9 @@ class Dashboard:
         cpu_graph_button = GradientButton(
             graph_row1,
             self.theme_manager,
-            text="🖥️ CPU-Graph",
+            self.icon_manager,
+            "graph_icon",
+            text="CPU-Graph",
             command=lambda: self._show_graph("cpu")
         )
         cpu_graph_button.pack(side="left", padx=5)
@@ -247,7 +281,9 @@ class Dashboard:
         memory_graph_button = GradientButton(
             graph_row2,
             self.theme_manager,
-            text="💾 RAM-Graph",
+            self.icon_manager,
+            "graph_icon",
+            text="RAM-Graph",
             command=lambda: self._show_graph("memory")
         )
         memory_graph_button.pack(side="left", padx=5)
@@ -255,7 +291,9 @@ class Dashboard:
         disk_graph_button = GradientButton(
             graph_row2,
             self.theme_manager,
-            text="💿 Disk-Graph",
+            self.icon_manager,
+            "graph_icon",
+            text="Disk-Graph",
             command=lambda: self._show_graph("disk")
         )
         disk_graph_button.pack(side="left", padx=5)
@@ -283,7 +321,9 @@ class Dashboard:
         save_config_button = GradientButton(
             config_row1,
             self.theme_manager,
-            text="💾 Konfiguration speichern",
+            self.icon_manager,
+            "save_config",
+            text="Konfiguration speichern",
             command=self._save_config
         )
         save_config_button.pack(side="left", padx=5)
@@ -291,7 +331,9 @@ class Dashboard:
         reset_config_button = GradientButton(
             config_row1,
             self.theme_manager,
-            text="🔄 Konfiguration zurücksetzen",
+            self.icon_manager,
+            "reset_config",
+            text="Konfiguration zurücksetzen",
             command=self._reset_config
         )
         reset_config_button.pack(side="left", padx=5)
@@ -302,7 +344,9 @@ class Dashboard:
         export_config_button = GradientButton(
             config_row2,
             self.theme_manager,
-            text="📤 Konfiguration exportieren",
+            self.icon_manager,
+            "export_config",
+            text="Konfiguration exportieren",
             command=self._export_config
         )
         export_config_button.pack(side="left", padx=5)

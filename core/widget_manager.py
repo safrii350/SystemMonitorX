@@ -9,16 +9,17 @@ from widgets.desktop_widget import DesktopWidget
 class WidgetManager:
     """Verwaltet Desktop-Widgets"""
     
-    def __init__(self, config_manager=None):
+    def __init__(self, config_manager=None, theme_manager=None):
         """Initialisiert den Widget-Manager"""
         self.config_manager = config_manager
+        self.theme_manager = theme_manager
         self.active_widgets: List[DesktopWidget] = []
         self.widget_lock = threading.Lock()
         
     def create_widget(self, widget_type: str, data: Dict[str, Any], parent_window=None) -> DesktopWidget:
         """Erstellt ein neues Desktop-Widget"""
         try:
-            widget = DesktopWidget(widget_type, data, parent_window, self.config_manager)
+            widget = DesktopWidget(widget_type, data, parent_window, self.config_manager, self.theme_manager)
             
             with self.widget_lock:
                 self.active_widgets.append(widget)

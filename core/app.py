@@ -17,9 +17,9 @@ class SystemMonitorX:
     def __init__(self):
         """Initialisiert die Anwendung"""
         self.config_manager = ConfigManager()
-        self.system_monitor = SystemMonitor()
-        self.widget_manager = WidgetManager(self.config_manager)
         self.theme_manager = ThemeManager()
+        self.system_monitor = SystemMonitor()
+        self.widget_manager = WidgetManager(self.config_manager, self.theme_manager)
         self.data_logger = DataLogger()
         self.tray_manager = None
         self.dashboard = None
